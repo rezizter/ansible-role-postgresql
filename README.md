@@ -1,6 +1,6 @@
 # Ansible Role: PostgreSQL
 
-[![CI](https://github.com/geerlingguy/ansible-role-postgresql/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-postgresql/actions/workflows/ci.yml)
+[![CI](https://github.com/rezizter/ansible-role-postgresql/actions/workflows/ci.yml/badge.svg)](https://github.com/rezizter/ansible-role-postgresql/actions/workflows/ci.yml)
 
 Installs and configures PostgreSQL server on RHEL/CentOS or Debian/Ubuntu servers.
 
