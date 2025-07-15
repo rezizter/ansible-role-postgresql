@@ -11,7 +11,7 @@ No special requirements; note that this role requires root access, so either run
 ```yaml
 - hosts: database
   roles:
-    - role: geerlingguy.postgresql
+    - role: rezizter.postgresql
       become: yes
 ```
 ## Role Variables
@@ -181,7 +181,8 @@ None.
   vars_files:
     - vars/main.yml
   roles:
-    - geerlingguy.postgresql
+    - rezizter
+.postgresql
 ```
 
 *Inside `vars/main.yml`*:
@@ -201,3 +202,4 @@ MIT / BSD
 ## Author Information
 
 This role was created in 2016 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+I have just forked the role to add support for AmazonLinux 2023
