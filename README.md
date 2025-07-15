@@ -181,8 +181,7 @@ None.
   vars_files:
     - vars/main.yml
   roles:
-    - rezizter
-.postgresql
+    - rezizter.postgresql
 ```
 
 *Inside `vars/main.yml`*:
