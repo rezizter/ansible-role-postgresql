@@ -7,6 +7,8 @@ Installs and configures PostgreSQL server on RHEL/CentOS or Debian/Ubuntu server
 ## Introduction
 This role is a fork from Geerlingguy to include Amazon Linux 2023.
 
+https://github.com/geerlingguy/ansible-role-postgresql
+
 ## Requirements
 
 No special requirements; note that this role requires root access, so either run it in a playbook with a global `become: yes`, or invoke the role in your playbook like:
