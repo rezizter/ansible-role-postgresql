@@ -1,16 +1,16 @@
 ---
 name: CI
+# on: [push]
 'on':
-  pull_request:
   push:
     branches:
-      - master
+      - main
   schedule:
-    - cron: "0 3 * * 5"
+    - cron: "30 8 * * 0"
 
 defaults:
   run:
-    working-directory: 'geerlingguy.postgresql'
+    working-directory: 'rezizter.ansible_postgres'
 
 jobs:
 
@@ -19,14 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
-          path: 'geerlingguy.postgresql'
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+          path: 'rezizter.ansible_postgres'
 
       - name: Install test dependencies.
         run: pip3 install yamllint
@@ -39,22 +34,16 @@ jobs:
     name: Molecule
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: ${{ !contains(github.event_name, 'pull_request') }}
       matrix:
-        distro:
-          # See: https://github.com/geerlingguy/docker-rockylinux9-ansible/issues/6
-          # - rockylinux9
-          # - fedora41
-          - ubuntu2404
-          - ubuntu2204
-          - debian11
-          - debian12
+        include:
+          - distro: rockylinux9
+            playbook: converge.yml
 
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v4
         with:
-          path: 'geerlingguy.postgresql'
+          path: 'rezizter.ansible_postgres'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v5
@@ -70,3 +59,4 @@ jobs:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
+          MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
