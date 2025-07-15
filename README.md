@@ -11,7 +11,7 @@ No special requirements; note that this role requires root access, so either run
 ```yaml
 - hosts: database
   roles:
-    - role: rezizter.postgresql
+    - role: rezizter.postgres
       become: yes
 ```
 ## Role Variables
@@ -181,7 +181,7 @@ None.
   vars_files:
     - vars/main.yml
   roles:
-    - rezizter.postgresql
+    - rezizter.postgres
 ```
 
 *Inside `vars/main.yml`*:
